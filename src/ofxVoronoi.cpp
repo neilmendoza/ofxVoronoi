@@ -161,7 +161,7 @@ void ofxVoronoi::relax(){
     vector<ofPoint> relaxPts;
     for(int i=0; i<cells.size(); i++) {
         ofPolyline p;
-        p.addVertices(cells[i].pts);
+        for (auto& v : cells[i].pts) p.addVertex(v);
         p.close();
         ofPoint centroid = p.getCentroid2D();
         relaxPts.push_back(centroid);
